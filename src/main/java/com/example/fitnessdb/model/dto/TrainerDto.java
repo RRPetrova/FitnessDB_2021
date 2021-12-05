@@ -3,6 +3,7 @@ package com.example.fitnessdb.model.dto;
 import java.time.LocalDate;
 
 public class TrainerDto {
+    public Long id;
     public String name;
     public String experience;
     public String headingTrainer;
@@ -10,6 +11,15 @@ public class TrainerDto {
     public LocalDate dateOfBirth;
 
     public TrainerDto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public TrainerDto setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public String getName() {

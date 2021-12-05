@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/fragm.html :: head"></head>
+
+<body class="body-reg">
+<header th:replace="fragments/fragm.html :: nav"></header>
+
+<main class="j-mw background1-image">
+    <h1 class="text-center text-white py-3">Available trainers</h1>
+
+    <table class="table table-bordered"  th:object="${allFreeTrainers}">
+
+        <tbody>
+
+
+        <th:block th:each="currTrainer, iter: ${allFreeTrainers}" th:object="${currTrainer}">
+            <tr class="row auto">
+                <th class="col-sm-1 d-flex justify-content-center align-items-center">
+                    <span class="font-weight-bold text-light" th:text="|${iter.index + 1}.|"></span>
+                </th>
+                <td class="col-sm-2 text-center text-light">
+                    <a th:href="@{/trainers/details/{id} (id=${currTrainer.id})}">
+                        <img class="img-thumbnail" th:src="*{trainerPictureUrl}">
+                    </a>
+                </td>
+                <td class="col-sm-2 d-flex justify-content-center align-items-center">
+                    <span class="font-weight-bold h5  text-light align-content-center"
+                          th:text="|*{name}|"></span>
+                </td>
+                <td class="col-sm-5">
+                    <p class="font-weight-bold  text-light" th:text="|*{experience}|"></p>
+                </td>
+                <td class="col-sm-2 d-flex justify-content-center align-items-center">
+                    <a th:href="@{/trainers/remove/{id}(id=${currTrainer.id})}" >
+                        <button class="btn btn-light btn-width ">Remove from the team</button>
+                    </a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</main>
+
+
+<footer th:replace="fragments/fragm.html :: footer"
+        class="text-center text-lg-start bg-dark text-muted "></footer>
+</body>
+
+</html>

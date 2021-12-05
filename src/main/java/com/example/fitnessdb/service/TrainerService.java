@@ -1,6 +1,7 @@
 package com.example.fitnessdb.service;
 
 import com.example.fitnessdb.model.binding.AddNewTrainerBindingModel;
+import com.example.fitnessdb.model.dto.TrainerDto;
 import com.example.fitnessdb.model.entity.TrainerEntity;
 
 import java.io.IOException;
@@ -22,4 +23,7 @@ public interface TrainerService {
     void addTrainer(AddNewTrainerBindingModel addNewTrainerBindingModel);
 
     List<String> getAllFreeTrainersNames();
+    List<TrainerDto> getAllFreeTrainers();
+
+    void removeTrainerById(Long id);
 }

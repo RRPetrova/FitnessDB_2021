@@ -2,10 +2,7 @@ package com.example.fitnessdb.model.binding;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class AddNewTrainerBindingModel {
@@ -19,6 +16,7 @@ public class AddNewTrainerBindingModel {
     public AddNewTrainerBindingModel() {
     }
 
+    @Pattern(regexp = "[A-Za-z ]*", message = "Must contains only letters")
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getName() {
@@ -41,6 +39,7 @@ public class AddNewTrainerBindingModel {
         return this;
     }
 
+    @Pattern(regexp = "[A-Za-z ]*", message = "Must contains only letters")
     @Size(min = 3, max = 20, message = "Heading must be between 3 and 20 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getHeadingTrainer() {
@@ -52,6 +51,7 @@ public class AddNewTrainerBindingModel {
         return this;
     }
 
+    @Pattern(regexp = "^https?://.*", message = "Invalid url type")
     @Size(min = 3, max = 200, message = "Picture URL must be between 3 and 200 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getTrainerPictureUrl() {

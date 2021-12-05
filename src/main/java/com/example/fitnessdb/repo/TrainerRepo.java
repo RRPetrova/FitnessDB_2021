@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public interface TrainerRepo extends JpaRepository<TrainerEntity, Long> {
 
+    Optional<TrainerEntity> findById(Long id);
 
 
     Optional<TrainerEntity> findByName(String name);
@@ -18,6 +19,13 @@ public interface TrainerRepo extends JpaRepository<TrainerEntity, Long> {
     @Query("SELECT t.name FROM TrainerEntity t " +
             "LEFT JOIN WorkoutEntity  w " +
             "ON t.id = w.trainer.id " +
-            "WHERE w.trainer.id IS NULL " )
-    List<String> findFreeTrainers();
+            "WHERE w.trainer.id IS NULL ")
+    List<String> findFreeTrainersNames();
+
+
+    @Query("SELECT t FROM TrainerEntity t " +
+            "LEFT JOIN WorkoutEntity  w " +
+            "ON t.id = w.trainer.id " +
+            "WHERE w.trainer.id IS NULL ")
+    List<TrainerEntity> findFreeTrainers();
 }

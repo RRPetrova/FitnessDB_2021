@@ -1,25 +1,25 @@
 [
   {
     "name": "Brandon",
-    "experience": "3258941",
+    "experience": "Trainer with much experience",
     "headingTrainer": "Our trainer Brandon will teach you self-defense and much more",
     "trainerPictureUrl": "/images/trainer-kickbox.webp"
   },
   {
     "name": "Melinda",
-    "experience": "2624765",
+    "experience": "Trainer with much experience a lot",
     "headingTrainer": "Pedal with our trainer Melinda",
     "trainerPictureUrl": "/images/trainer-spinning.jpg"
   },
   {
     "name": "Joe",
-    "experience": "4636897",
+    "experience": "Trainer with much experience a lot a lot of experience",
     "headingTrainer": "Muscle growth with Joe",
     "trainerPictureUrl": "/images/trainer-wl.webp"
   },
   {
     "name": "Jane Doe",
-    "experience": "4845321",
+    "experience": "Jane is our most experienced trainer with 10 years of happy clients",
     "headingTrainer": "Our trainer Jane Doe will show you her love for pilates",
     "trainerPictureUrl": "/images/trainer-pilates.webp"
   }

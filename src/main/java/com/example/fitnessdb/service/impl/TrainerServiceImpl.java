@@ -3,6 +3,7 @@ package com.example.fitnessdb.service.impl;
 import com.example.fitnessdb.exceptions.ResourceNotFoundException;
 import com.example.fitnessdb.model.dto.SeedTrainersDto;
 import com.example.fitnessdb.model.binding.AddNewTrainerBindingModel;
+import com.example.fitnessdb.model.dto.TrainerDto;
 import com.example.fitnessdb.model.entity.TrainerEntity;
 import com.example.fitnessdb.repo.TrainerRepo;
 import com.example.fitnessdb.service.TrainerService;
@@ -86,11 +87,35 @@ public class TrainerServiceImpl implements TrainerService {
 
     @Override
     public List<String> getAllFreeTrainersNames() {
-//        System.out.println(this.trainerRepo.findFreeTrainers());
-//        List<String> arrL = new ArrayList<>();
-//        this.trainerRepo.findFreeTrainers().stream()
-//                .forEach(arrL::add);
-//        System.out.println(arrL);
-        return this.trainerRepo.findFreeTrainers();
+
+        return this.trainerRepo.findFreeTrainersNames();
+
+    }
+
+
+    @Override
+    public List<TrainerDto> getAllFreeTrainers() {
+
+        System.out.println(this.trainerRepo.findFreeTrainers());
+        List<String> arrL = this.trainerRepo
+                .findFreeTrainers()
+                .stream()
+                .map(t -> t.name)
+                .collect(Collectors.toList());
+        System.out.println(arrL);
+
+        return this.trainerRepo.findFreeTrainers()
+                .stream()
+                .map(currTrainer -> this.modelMapper.map(currTrainer, TrainerDto.class))
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    @Override
+    public void removeTrainerById(Long id) {
+
+        this.trainerRepo.deleteById(id);
+
+
     }
 }

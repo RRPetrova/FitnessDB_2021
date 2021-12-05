@@ -2,10 +2,7 @@ package com.example.fitnessdb.model.binding;
 
 import com.example.fitnessdb.model.entity.TrainerEntity;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.sql.Time;
 
@@ -24,6 +21,7 @@ public class AddNewWorkoutBindingModel {
 
     }
 
+    @Pattern(regexp = "[A-Za-z ]*", message = "Must contains only letters")
     @Size(min = 3, max = 20, message = "Name must be between 3 and 20 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getName() {
@@ -56,6 +54,7 @@ public class AddNewWorkoutBindingModel {
         return this;
     }
 
+    @Pattern(regexp = "[A-Za-z ]*", message = "Must contains only letters")
     @Size(min = 10, max = 200, message = "Description must be between 10 and 200 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getDescription() {
@@ -67,6 +66,7 @@ public class AddNewWorkoutBindingModel {
         return this;
     }
 
+    @Pattern(regexp = "[A-Za-z ]*", message = "Must contain only letters")
     @Size(min = 3, max = 20, message = "Heading must be between 3 and 20 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getHeading() {
@@ -91,6 +91,7 @@ public class AddNewWorkoutBindingModel {
         return this;
     }
 
+    @Pattern(regexp = "^https?://.*", message = "Invalid url type")
     @Size(min = 3, max = 255, message = "Image Url must be between 3 and 255 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getImageUrl() {

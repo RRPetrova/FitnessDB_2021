@@ -19,6 +19,7 @@ public class UserRegisterBindingModel {
     public UserRegisterBindingModel() {
     }
 //TODO field match validation from workshop 1:52 02.2021 lecture 6
+
     @Size(min = 5, max = 20, message = "Username must be between 5 and 20 symbols.")
     @NotBlank(message = "Field cannot be blank.")
     public String getUsername() {
