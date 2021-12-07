@@ -2,10 +2,7 @@ package com.example.fitnessdb.model.binding;
 
 import com.example.fitnessdb.model.validator.PasswordsMatch;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @PasswordsMatch(firstF = "password", secondF = "confirmPassword", message = "Fields must match")
 public class UserRegisterBindingModel {
@@ -31,7 +28,8 @@ public class UserRegisterBindingModel {
         return this;
     }
 
-
+    @Pattern(regexp = "[A-Za-z ]*", message = "Must contains only letters")
+    @NotBlank(message = "Field cannot be blank.")
     public String getFirstName() {
         return firstName;
     }

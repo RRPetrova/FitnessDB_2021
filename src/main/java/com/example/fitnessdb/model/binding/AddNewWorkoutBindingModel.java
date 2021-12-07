@@ -106,6 +106,7 @@ public class AddNewWorkoutBindingModel {
 
     @Positive
     @NotNull
+    @Max(value = 999, message = "Not a normal price tag.")
     public BigDecimal getPrice() {
         return price;
     }

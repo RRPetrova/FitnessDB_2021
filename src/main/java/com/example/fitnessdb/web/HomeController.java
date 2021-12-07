@@ -24,7 +24,7 @@ public class HomeController {
         if (principal != null) {
             return "redirect:/home";
         }
-        model.addAttribute("pageTitle", "Welcome to Fitness DB");
+        model.addAttribute("pageTitle", "Welcome to Fitness");
         return "index";
     }
 
