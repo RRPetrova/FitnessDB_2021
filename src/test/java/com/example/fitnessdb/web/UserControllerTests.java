@@ -67,7 +67,6 @@ public class UserControllerTests {
         Assertions.assertEquals("TestName", newlyCreatedUser.get().getFirstName());
         Assertions.assertEquals("test@test.bg", newlyCreatedUser.get().getEmail());
         Assertions.assertEquals("1231-45-67-88", newlyCreatedUser.get().getPhoneNumber());
-
     }
 
 
@@ -100,7 +99,6 @@ public class UserControllerTests {
 
     @Test
     public void registerUserWithUsernameAlreadyExisting() throws Exception {
-
         mockMvc.perform(post("/users/register")
                         .param("firstName", "TestName")
                         .param("username", "user1")
@@ -110,7 +108,6 @@ public class UserControllerTests {
                         .param("phoneNumber", "3599-99-78-99")
                         .with(csrf()))
                 .andExpect(status().is3xxRedirection());
-
         Assertions.assertTrue( userService.usernameAlreadyExists("user1"));
     }
 

@@ -51,11 +51,8 @@ public class WorkoutControllerTest {
     @Autowired
     private PostRepo postRepo;
 
-
     @Autowired
     private MockMvc mockMvc;
-
-
 
     @BeforeEach
     public void setUp() {
@@ -126,7 +123,7 @@ public class WorkoutControllerTest {
                 .setName("Pulev")
                 .setExperience("Long exp")
                 .setHeadingTrainer("Best trainer ever")
-                .setTrainerPictureUrl("pic1.jpg");
+                .setTrainerPictureUrl("https://pic1.jpg");
         trainerEntity1 = trainerRepo.save(trainerEntity1);
 
         mockMvc.perform(post("/workouts/add")
@@ -135,7 +132,7 @@ public class WorkoutControllerTest {
                         .param("time", "18:50:00")
                         .param("heading", "Box the best test")
                         .param("trainerName", "Pulev")
-                        .param("imageUrl", "testBoxPic.jpg")
+                        .param("imageUrl", "https://testBoxPic.jpg")
                         .param("description", "Box Workouts to Get Your Blood Pumping")
                         .param("price", String.valueOf(BigDecimal.valueOf(555.55)))
                         .param("dayOfWeek", "SUNDAY")

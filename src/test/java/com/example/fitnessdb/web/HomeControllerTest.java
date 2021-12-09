@@ -27,7 +27,6 @@ public class HomeControllerTest {
                 .andExpect(model().attributeExists("allWorkouts", "mostlyChosen"));
     }
 
-
     @Test
     public void redirectToIndexFromHomePageWhenNotAuthenticated() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
@@ -41,6 +40,4 @@ public class HomeControllerTest {
                         .get("/"))
                 .andExpect(status().isOk());
     }
-
-
 }
