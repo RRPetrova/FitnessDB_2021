@@ -17,7 +17,7 @@ public class TimeCourseEntity extends BaseEntity{
     public TimeCourseEntity() {
     }
 
-    @Column
+    @Column(nullable = false)
     public String getDayOfWeek() {
         return dayOfWeek;
     }
@@ -27,7 +27,7 @@ public class TimeCourseEntity extends BaseEntity{
         return this;
     }
 
-    @Column
+    @Column(nullable = false)
     public String getTime() {
         return time;
     }

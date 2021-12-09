@@ -31,7 +31,6 @@ public class LoggerServiceImpl implements LoggerService {
             logger.info("My first log");
             logger.log(Level.INFO, String.format("Event happened: %s registered with email %s", event.getUsername(), event.getEmail()));
 
-
         } catch (SecurityException | IOException e) {
             e.printStackTrace();
         }

@@ -95,7 +95,9 @@ public class UserServiceImpl implements UserService {
         }
 
         this.userRepo.save(userEntity);
+        //event here
         this.eventPublisher.publishEvent(userCredentialsDto);
+
         UserDetails principal = this.fitnessDBUserService.loadUserByUsername(userEntity.getUsername());
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(

@@ -9,8 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class GlobalErrorHandler {
 
-
-
     @ExceptionHandler({ResourceNotFoundException.class})
     public ModelAndView handleResourceNotFoundException(ResourceNotFoundException exception) {
         ModelAndView modelAndView = new ModelAndView("error-404");

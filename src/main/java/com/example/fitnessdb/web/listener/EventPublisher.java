@@ -15,7 +15,6 @@ public class EventPublisher {
     }
 
 
-
     public void publishEvent(UserCredentialsDto userCredentialsDto) {
         UserEvent userEvent = new UserEvent(userCredentialsDto.getUsername(), userCredentialsDto.getEmail());
 

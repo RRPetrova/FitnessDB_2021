@@ -14,7 +14,6 @@ public class HttpRequestResponseUtils {
 
     private final UserRepo userRepo;
 
-
     private HttpRequestResponseUtils(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
@@ -23,12 +22,11 @@ public class HttpRequestResponseUtils {
             "HTTP_X_FORWARDED_FOR", "HTTP_X_FORWARDED", "HTTP_X_CLUSTER_CLIENT_IP", "HTTP_CLIENT_IP",
             "HTTP_FORWARDED_FOR", "HTTP_FORWARDED", "HTTP_VIA", "REMOTE_ADDR"};
 
-    public static String getClientIpAddress() {
 
+    public static String getClientIpAddress() {
         if (RequestContextHolder.getRequestAttributes() == null) {
             return "0.0.0.0";
         }
-
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
                 .getRequest();
 
@@ -39,12 +37,10 @@ public class HttpRequestResponseUtils {
                 return ip;
             }
         }
-
         return request.getRemoteAddr();
     }
 
     public static String getRequestUrl() {
-
         if (RequestContextHolder.getRequestAttributes() == null) {
             return "";
         }
@@ -77,7 +73,6 @@ public class HttpRequestResponseUtils {
                 .getRequest();
 
         String referer = request.getHeader("Referer");
-
         return referer != null ? referer : request.getHeader("referer");
     }
 

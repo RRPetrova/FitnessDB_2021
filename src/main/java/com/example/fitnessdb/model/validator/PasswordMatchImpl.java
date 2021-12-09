@@ -17,7 +17,6 @@ public class PasswordMatchImpl implements ConstraintValidator<PasswordsMatch, Ob
         firstField = constraintAnnotation.firstF();
         secondField = constraintAnnotation.secondF();
         this.message = constraintAnnotation.message();
-
     }
 
     @Override
