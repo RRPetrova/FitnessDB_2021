@@ -12,7 +12,6 @@
         <h1 class="text-center text-white py-3">Logger info</h1>
         <div>
             <div class="input-group rounded">
-
                 <form class="d-flex">
                     <input id="searchInput"
                            style="width: 300px;"
@@ -27,8 +26,8 @@
         </div>
     </div>
 
-    <div class="table-responsive text-light">
-    <table class="table table-bordered">
+    <div class="text-light table-responsive-sm " style="overflow-x: auto">
+    <table class="table-bordered  text-light text-center">
         <thead>
         <tr style="color: #fefefe">
             <th>Id</th>
@@ -43,23 +42,22 @@
         </tr>
         </thead>
         <tbody id="allStatList">
-        <tr
-            th:each="s : ${loggerList}" style="color: #fefefe">
-            <td th:text="${s.id}">${s.id}</td>
-            <td th:text="${s.ip}">${s.ip}</td>
-            <td th:text="${s.page}">${s.page}</td>
-            <td th:text="${s.refererPage}">${s.refererPage}</td>
-            <td th:text="${s.requestMethod}">${s.requestMethod}</td>
-            <td th:text="${s.timestamp}">${s.timestamp}</td>
-            <td th:text="${s.url}">${s.url}</td>
-            <td th:text="${s.user}">${s.user}</td>
-            <td th:text="${s.userAgent}">${userAgent}</td>
-        </tr>
+            <tr th:each="s : ${loggerList}" style="color: #fefefe">
+                <td th:text="${s.id}">${s.id}</td>
+                <td th:text="${s.ip}">${s.ip}</td>
+                <td th:text="${s.page}">${s.page}</td>
+                <td th:text="${s.refererPage}">${s.refererPage}</td>
+                <td th:text="${s.requestMethod}">${s.requestMethod}</td>
+                <td th:text="${s.timestamp}">${s.timestamp}</td>
+                <td th:text="${s.url}">${s.url}</td>
+                <td th:text="${s.user}">${s.user}</td>
+                <td th:text="${s.userAgent}">${userAgent}</td>
+            </tr>
         </tbody>
-    </table>
+        </table>
     </div>
 </main>
 <footer th:replace="fragments/fragm :: footer" class="text-center text-lg-start bg-dark text-muted "></footer>
-    <script th:src="@{js/search-bar.js}"></script>
+<script th:src="@{js/search-bar.js}"></script>
 </body>
 </html>
